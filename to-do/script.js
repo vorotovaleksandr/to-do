@@ -1,3 +1,6 @@
-function valid (userToDo){
-var td = form.text.value;
-alert(td);}
+$(function (){ 
+    $('#Add').click(function(){
+       var text = $('#text').val(); 
+       $('#min').text(text);
+    });
+});
