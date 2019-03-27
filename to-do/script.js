@@ -1,31 +1,45 @@
-var bgcolorlist = ['#ee6a68', '#f279a2', '#5eb3f6', '#67d7e5', '#ffe083' ];
-var cb = $('<input type = "checkbox"/>')
-$(function(){
+var bgcolorlist = ['red', 'pinck', 'blue', 'lightBlue', 'yellow'];
 
-   
-       $('#Add').click(function(){
-        var text = $('#text').val();
-        $('#cb').addClass('cbox');
-        $('#min').addClass('newBlock');
-        $('p').css({
-            background: bgcolorlist[Math.floor(Math.random()*bgcolorlist.length)]
-            });
-                 $('#cb').append(cb)
-                 $('#min').append(text)
-             return;
-        }) 
-    });
-}
-    else{
-            $('#Add').click(function(){
-            var text = $('#text').val();
-            $('#cb').addClass('cbox');
-            $('#min').addClass('newBlock');
-            $('#red').click(function(){
-            $('P').addClass ('#red')
-            $('#cb').append(cb)
-            $('#min').append(text)
-                 return;
-            }); 
-        });
-    }
+var cbox = ('<input type = "checkbox" id="cb"/>');
+    // $(function(){
+    //     // $('#Add').click(
+    //     //     function(){
+    //     //         var toAdd = $('input[name=text]').val();
+    //     //         $('ol').append('<li>'+cbox+toAdd+'</li');
+    //     //         $('li').addClass('newBlock');
+                
+    //     //     }
+    //     // )
+    // });
+
+    var items = []
+        //get title from input
+        //add unique id
+        //color
+        //отрисовать айтемы
+    $('#Add').click(
+        function(e){
+            var rand = Math.floor(Math.random() * bgcolorlist.length);
+            var toAdd = $('input[name=text]').val();
+
+            $('li').last().addClass('newBlock');
+            $('li').last().addClass(bgcolorlist[rand]);
+
+            items.push({
+                'title' : toAdd,
+                'id' : rand,
+                'checked' : false,
+                'color' : bgcolorlist[rand]
+            })
+            items.map((item) => {
+                console.log('TITLES', item.title)
+                $('ol').append('<li>'+cbox+item.title+'</li>');
+            })
+                console.log('rewrer', items)
+        }
+    )
+    $('.change-color').on("click", function(e) {
+        // var id = $(this).attr("data-id");
+        console.log('id', $(e.currentTarget).attr('id'))   
+        // $('li').addClass(id);
+    })
