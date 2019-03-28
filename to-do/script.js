@@ -1,5 +1,5 @@
 var bgcolorlist = ['red', 'pinck', 'blue', 'lightBlue', 'yellow'];
-
+var randId =[1,2,3,4,5,6,7,8,9];
 var cbox = ('<input type = "checkbox" id="cb"/>');
     // $(function(){
     //     // $('#Add').click(
@@ -21,25 +21,46 @@ var cbox = ('<input type = "checkbox" id="cb"/>');
         function(e){
             var rand = Math.floor(Math.random() * bgcolorlist.length);
             var toAdd = $('input[name=text]').val();
-
+            var randI = Math.floor(Math.random() * randId.length);
+            
             $('li').last().addClass('newBlock');
             $('li').last().addClass(bgcolorlist[rand]);
 
             items.push({
                 'title' : toAdd,
-                'id' : rand,
+                'id' : randI,
                 'checked' : false,
                 'color' : bgcolorlist[rand]
             })
+            
             items.map((item) => {
-                console.log('TITLES', item.title)
-                $('ol').append('<li>'+cbox+item.title+'</li>');
+            $('ol').append('<li>'+cbox+item.title+'</li>');
             })
-                console.log('rewrer', items)
-        }
-    )
+                console.log('newItems', items)
+            })
+            $('cbox').click(function(){
+                if(cbox)'checked'(true)
+                $('li').last().addClass(color)
+            });
+
+            
     $('.change-color').on("click", function(e) {
-        // var id = $(this).attr("data-id");
-        console.log('id', $(e.currentTarget).attr('id'))   
-        // $('li').addClass(id);
+                var id = $(this).attr("data-id");
+            console.log('id', $(e.currentTarget).attr('id'))   
+             $('li').addClass(id);
+                items.push({
+             'color' : id,
+            })
+            })
+    $('#red').on("click" , function() {
+                items.map((checkbox) => {
+
+             $('input:checkbox:checked').each(function() {
+                cbox.push($(items).val());
+            });
+              
+             color.push({
+             'color' : id        
+            })
+            })
     })

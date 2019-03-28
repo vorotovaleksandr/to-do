@@ -6,6 +6,9 @@ body{
     background-color: #ebf3f6;
     margin-left: auto;
     margin-right: auto;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    padding: 10px;
 }
 .toDo{
     width: 600px;
@@ -72,12 +75,10 @@ li{
     background-color: white;
     margin: auto;
     list-style-type: none;
+    font-size: 20px;
   }
-  #cbox{
-    width: 50px;
-    height: 50px;
-    border: 1px solid gray;
-    border-radius: 3px;
-    background-color: white;
-    margin: auto;
+  .checkbox{
+    display: inline-flex;
+    padding: 20px;
+    border-right: 1px solid #ebf3f6;
   }
